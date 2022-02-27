@@ -639,11 +639,15 @@ function tirar(){
   
   let current = Number($('#lifeCurrent').val()) - 1
   const max = Number($('#lifeMax').val())
-
+  
   
   data.life.current = current
   data.life.max = max
 
+  const zero = 0
+  if (current < zero) {
+    current.add(++zero)
+  }
 
 
   $('.lifeBar').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
@@ -663,7 +667,9 @@ function add(){
   data.life.current = current
   data.life.max = max
 
-
+if (current > max) {
+    current.add(--max)
+  }
 
   $('.lifeBar').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
   
@@ -674,44 +680,6 @@ function add(){
 }
 
 
-
-
-//para sanidade
-
-function tirars(){
-
-  let current = Number($('#sanityCurrent').val()) - 1
-  const max = Number($('#sanityMax').val())
-
-  
-
-  data.sanity.current = current
-  data.sanity.max = max
-
-  $('.sanityBar').css('width', `${calculateBar(current, max)}%`)
-
-   $('#sanityCurrent').val(data.sanity.current) 
-  $('#sanityCount').text(`${current}/${max}`)
-  
-}
-
-
-function adds(){
-
-  let current = Number($('#sanityCurrent').val()) + 1
-  const max = Number($('#sanityMax').val())
-
-  
-
-  data.sanity.current = current
-  data.sanity.max = max
-
-  $('.sanityBar').css('width', `${calculateBar(current, max)}%`)
-
-   $('#sanityCurrent').val(data.sanity.current) 
-  $('#sanityCount').text(`${current}/${max}`)
-  
-}
 
 
 
@@ -729,7 +697,10 @@ function tiraro(){
   data.life.current = current
   data.life.max = max
 
-
+  const zero = 0
+  if (current < zero) {
+    current.add(++zero)
+  }
 
   $('.lifeBaro').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
   
@@ -738,13 +709,224 @@ function tiraro(){
   
 }
 
+function tiraro2(){
+
+
+  function scrollWin(x, y) {
+    window.scrollBy(x, y);
+  }
+  scrollWin(0,-5000)
+
+  let current = Number($('#lifeCurrento').val()) - 2
+  const max = Number($('#lifeMaxo').val())
+
+  
+  data.life.current = current
+  data.life.max = max
+
+  const zero = 0
+  if (current < zero) {
+    current.add(++zero)
+  }
+
+  $('.lifeBaro').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
+  
+  $('#lifeCurrento').val(data.life.current) 
+  $('#lifeCounto').text(`${data.life.current}/${data.life.max}`)
+  
+
+  
+ 
+}
+
+
+function tiraro4(){
+
+
+  function scrollWin(x, y) {
+    window.scrollBy(x, y);
+  }
+  scrollWin(0,-5000)
+
+  let current = Number($('#lifeCurrento').val()) - 4
+  const max = Number($('#lifeMaxo').val())
+
+  
+  data.life.current = current
+  data.life.max = max
+
+  const zero = 0
+  if (current < zero) {
+    current.add(++zero)
+  }
+
+  $('.lifeBaro').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
+  
+  $('#lifeCurrento').val(data.life.current) 
+  $('#lifeCounto').text(`${data.life.current}/${data.life.max}`)
+  
+
+  
+ 
+}
+
+
+
+function tiraro3(){
+
+
+  function scrollWin(x, y) {
+    window.scrollBy(x, y);
+  }
+  scrollWin(0,-5000)
+
+  let current = Number($('#lifeCurrento').val()) - 2
+  const max = Number($('#lifeMaxo').val())
+
+  
+  data.life.current = current
+  data.life.max = max
+
+  const zero = 0
+  if (current < zero) {
+    current.add(++zero)
+  }
+
+  $('.lifeBaro').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
+  
+  $('#lifeCurrento').val(data.life.current) 
+  $('#lifeCounto').text(`${data.life.current}/${data.life.max}`)
+  
+rollDano_4()
+  
+ 
+}
+
+
+function adddi(){
+  
+  let dadovalor = rollDice('1d12')
+
+
+
+
+  function scrollWin(x, y) {
+    window.scrollBy(x, y);
+  }
+  scrollWin(0,-5000)
+
+  diceModal.css('display', 'block')
+
+  setTimeout(() => {
+    $('.modalDice').css('transform', 'rotate(360deg)')
+    $('.modalDice').css('-webkit-transform', 'rotate(360deg)')
+  }, 1000)
+
+
+
+  
+
+  setTimeout(() => {
+    
+    const diceNumber = dadovalor
+    const diceType = ""
+    $('#diceNumber').text(diceNumber)
+    $('#diceType').text(diceType)
+    complete()
+    completedois()
+    
+
+    setTimeout(() => {
+      diceModal.css('display', 'none')
+      $('#diceNumber').text('')
+      $('#diceType').text('')
+
+      $('.modalDice').css('transform', 'rotate(0deg)')
+      $('.modalDice').css('-webkit-transform', 'rotate(0deg)')
+    }, 100000000000)
+  }, 2000)
+  
+  function completedois(){
+
+
+   
+  
+
+  let current = Number($('#lifeCurrent').val()) + dadovalor
+  const max = Number($('#lifeMax').val())
+
+  
+  data.life.current = current
+  data.life.max = max
+  
+  if (current > max) {
+    current.add(--max)
+  }
+
+  $('.lifeBar').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
+  
+  $('#lifeCurrent').val(data.life.current) 
+  $('#lifeCount').text(`${data.life.current}/${data.life.max}`)
+  }
+  
+  
+ 
+    
+  function complete(){
+    
+
+    
+  
+  
+    let current = Number($('#lifeCurrento').val()) + dadovalor - 3
+      const max = Number($('#lifeMaxo').val())
+    
+      
+      data.life.current = current
+      data.life.max = max
+      
+      if (current > max) {
+        current.add(--max)
+      }
+      $('.lifeBaro').css('width', `${calculateBar(data.life.current, data.life.max)}%`)
+      
+      $('#lifeCurrento').val(data.life.current) 
+      $('#lifeCounto').text(`${data.life.current}/${data.life.max}`)
+    }
+  
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function addo(){
   
   let current = Number($('#lifeCurrento').val()) + 1
   const max = Number($('#lifeMaxo').val())
 
+  if (current > max) {
+    current.add(--max)
+  }
+
   
+
   data.life.current = current
   data.life.max = max
 
